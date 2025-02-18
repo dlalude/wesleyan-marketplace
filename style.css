@@ -247,7 +247,61 @@ html {
     border: none;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
-  
+
+  .testimonials {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+  }
+
+  .testimonial-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  .testimonial-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s ease;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .testimonial-card p {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  .testimonial-card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-card h3 {
+    font-size: 1.2em;
+    color: #4a90e2;
+    margin-bottom: 5px;
+  }
+
+  .testimonial-card span {
+    font-size: 0.9em;
+    color: #777;
+  }
+
 
 
 
@@ -296,6 +350,10 @@ html {
       width: 95%;
       height: 300px;
     }
+    .testimonial-grid {
+      flex-direction: column;
+      align-items: center;
+  }
   }
   /* Contact Section (ID Selector #contact) */
   #contact {
