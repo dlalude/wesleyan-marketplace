@@ -234,6 +234,14 @@ html {
     margin-bottom: 15px;
   }
   
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
 
   
   /* Animations */
