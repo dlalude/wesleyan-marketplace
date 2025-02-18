@@ -306,6 +306,14 @@ html {
 
 
   
+  /* Footer */
+  footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+  
 
   
   /* Animations */
@@ -347,4 +355,57 @@ html {
       align-items: center;
   }
   }
+  /* Contact Section (ID Selector #contact) */
+  #contact {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    background: #f7f7f7;
+    border-radius: 10px;
+    padding: 40px;
+  }
   
+  .contact-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .contact-content h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #e94e77;
+  }
+  
+  .contact-content p {
+    margin-bottom: 20px;
+  }
+  
+  .contact-link {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #e94e77;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    background: #d13b62;
+    transform: scale(1.05);
+  }
+  
+  .contact-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+  }
+  
+  .contact-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
