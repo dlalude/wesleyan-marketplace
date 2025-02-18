@@ -17,7 +17,7 @@ html {
     color: #333;
   }
   
-  /* Navigation Bar using Flexbox */
+  /* Navigation Bar with Flexbox */
   nav {
     background: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -131,6 +131,107 @@ html {
     border-radius: 10px;
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* About Section (ID Selector #about) */
+  #about {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .about-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .about-content h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #4a90e2;
+  }
+  
+  .about-content p {
+    margin-bottom: 20px;
+  }
+  
+  .learn-more {
+    display: inline-block;
+    padding: 10px 25px;
+    background: #4a90e2;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .learn-more:hover {
+    background: #367bb5;
+    transform: scale(1.05);
+  }
+  
+  .about-image {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+  }
+  
+  .about-image img {
+    width: 100%;
+    max-width: 400px; /* Reduced size for About image */
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Features Section (Class Selector .features-section) */
+  .features-section {
+    text-align: center;
+  }
+  
+  .features-section h2 {
+    font-size: 2.4em;
+    margin-bottom: 40px;
+    color: #e94e77;
+  }
+  
+  .features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+  
+  .feature-item {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    transition: transform 0.3s ease;
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .feature-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .feature-item p {
+    font-size: 0.95em;
+    margin-bottom: 15px;
   }
   
 
