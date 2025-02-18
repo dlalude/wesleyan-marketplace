@@ -233,6 +233,24 @@ html {
     font-size: 0.95em;
     margin-bottom: 15px;
   }
+  .iframe-container {
+    text-align: center;
+    margin: 40px auto;
+    width: 90%;
+    max-width: 800px;
+  }
+
+  .iframe-container iframe {
+    width: 100%;
+    aspect-ratio: 16/9; /* Keeps a responsive video size */
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+
+
+
   
 
   
