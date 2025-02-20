@@ -330,33 +330,51 @@ html {
     }
   }
   
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    #hero {
-      flex-direction: column;
-    }
-    #about,
-    #contact {
-      flex-direction: column;
-      text-align: center;
-    }
-    .nav-container {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .features-grid {
-      flex-direction: column;
-      align-items: center;
-    }
-    #promo-iframe {
-      width: 95%;
-      height: 300px;
-    }
-    .testimonial-grid {
-      flex-direction: column;
-      align-items: center;
+/* Responsive Design */
+@media (max-width: 768px) {
+  #hero {
+    flex-direction: column;
   }
+  #about,
+  #contact {
+    flex-direction: column;
+    text-align: center;
   }
+  .nav-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  #promo-iframe {
+    width: 95%;
+    height: 300px;
+  }
+  .testimonial-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Adjusted Title Sizes for Better Mobile Readability */
+  h1 {
+    font-size: 1.4em !important; /* Reduce main title size */
+  }
+
+  h2 {
+    font-size: 1.2em !important; /* Reduce section titles */
+  }
+
+  h3 {
+    font-size: 1em !important; /* Reduce feature titles */
+  }
+
+  p {
+    font-size: 0.9em !important; /* Keep paragraph text readable */
+  }
+}
+
   /* Contact Section (ID Selector #contact) */
   #contact {
     display: flex;
