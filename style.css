@@ -9,9 +9,9 @@ html {
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
@@ -124,6 +124,7 @@ html {
     padding: 20px;
   }
   
+  
   .hero-image img {
     width: 100%;
     max-width: 500px;
@@ -132,6 +133,7 @@ html {
     object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
+  
 
   /* About Section (ID Selector #about) */
   #about {
