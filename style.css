@@ -328,34 +328,8 @@ html {
       opacity: 1;
       transform: translateY(0);
     }
-  }
+  } 
   
-/* Responsive Design */
-@media (max-width: 768px) {
-  #hero {
-    flex-direction: column;
-  }
-  #about,
-  #contact {
-    flex-direction: column;
-    text-align: center;
-  }
-  .nav-container {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .features-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-  #promo-iframe {
-    width: 95%;
-    height: 300px;
-  }
-  .testimonial-grid {
-    flex-direction: column;
-    align-items: center;
-  }
 
   /* Adjusted Title Sizes for Better Mobile Readability */
   h1 {
@@ -378,54 +352,45 @@ html {
   /* Contact Section (ID Selector #contact) */
   #contact {
     display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
+    flex-direction: column;  
+    align-items: center;  
+    justify-content: center; 
+    text-align: center;
+    height: 40vh; 
+    margin: 0 auto;  
     background: #f7f7f7;
     border-radius: 10px;
     padding: 40px;
-  }
+    width: 100%;
+}
   
-  .contact-content {
-    flex: 1;
-    min-width: 300px;
-  }
-  
-  .contact-content h2 {
+.contact-content {
+    max-width: 600px;  
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.contact-content h2 {
     font-size: 2.2em;
     margin-bottom: 20px;
     color: #e94e77;
-  }
+}
   
-  .contact-content p {
+.contact-content p {
     margin-bottom: 20px;
-  }
+}
   
-  .contact-link {
+.contact-link {
     display: inline-block;
-    padding: 10px 25px;
+    padding: 12px 30px;
     background: #e94e77;
     color: #fff;
     text-decoration: none;
     border-radius: 50px;
     transition: background 0.3s ease, transform 0.3s ease;
-  }
+}
   
-  .contact-link:hover {
+.contact-link:hover {
     background: #d13b62;
     transform: scale(1.05);
-  }
-  
-  .contact-image {
-    flex: 1;
-    min-width: 300px;
-    text-align: center;
-  }
-  
-  .contact-image img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
-  }
+}
