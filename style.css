@@ -329,6 +329,7 @@ html {
       transform: translateY(0);
     }
   } 
+<<<<<<< HEAD
   
 
   /* Adjusted Title Sizes for Better Mobile Readability */
@@ -348,6 +349,8 @@ html {
     font-size: 0.9em !important; /* Keep paragraph text readable */
   }
 
+=======
+>>>>>>> dbec357 (Updated style.css to improve centering behavior)
 
   /* Contact Section (ID Selector #contact) */
   #contact {
