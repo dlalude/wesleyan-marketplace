@@ -30,6 +30,13 @@ Cloning the Repository and Running Locally
    - The project is a static website, so no server setup is needed.
    - Simply open `index.html` in any modern web browser. Note: Chrome may display a security warning; for a better experience, use Safari or another browser.
 
+### **Performance Results & Best Experience Recommendations**
+We achieved **95+ scores** for both **mobile and desktop** on performance, accessibility, best practices, and SEO using **Lighthouse**.
+
+#### **Optimizing Your Experience**
+- **Browser Extensions Impact Performance**: Having multiple browser extensions installed can negatively impact page load times and performance scores.
+- **Recommended Viewing Mode**: For the **best and most optimal experience**, we recommend opening the site in **Incognito Mode (Private Browsing Mode)**, as this disables most extensions that could interfere with performance.
+- **Supported Browsers**: While the site works well across all modern browsers, we recommend using **Google Chrome, Safari, or Firefox** for the smoothest experience.
 
 
 📊 Contribution Percentages
