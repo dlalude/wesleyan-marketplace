@@ -71,6 +71,7 @@ nav {
 
 /* Hero Section (ID Selector #hero) */
 #hero {
+  max-height: 115vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,13 +92,13 @@ nav {
 }
 
 .hero-content h1 {
-  font-size: 2.8em;
+  font-size: 2.4em;
   margin-bottom: 20px;
 }
 
 .hero-content p {
-  font-size: 1.2em;
-  margin-bottom: 30px;
+  font-size: 1em;
+  margin-bottom: 20px;
 }
 
 .cta-button {
@@ -370,3 +371,17 @@ footer {
   transform: scale(1.05);
 }
 
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.4em !important; /* Reduce main title size */
+  }
+  h2 {
+    font-size: 1.2em !important; /* Reduce section titles */
+  }
+  h3 {
+    font-size: 1em !important; /* Reduce feature titles */
+  }
+  p {
+    font-size: 0.9em !important; /* Keep paragraph text readable */
+  }
+}
