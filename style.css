@@ -384,4 +384,9 @@ footer {
   p {
     font-size: 0.9em !important; /* Keep paragraph text readable */
   }
+  .testimonials {
+    display: none !important; /* Hides the entire "What Students Say" section */
+  }
 }
+
+
