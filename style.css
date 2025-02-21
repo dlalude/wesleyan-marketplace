@@ -370,16 +370,3 @@ footer {
   transform: scale(1.05);
 }
 
-/* Fix for Tablets (iPad Air, etc.) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .features-section {
-    padding: 50px 30px;
-  }
-  .features-grid {
-    gap: 20px;
-  }
-  .feature-item {
-    padding: 20px;
-    margin: 15px auto;
-  }
-}
