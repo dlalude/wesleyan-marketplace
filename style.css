@@ -330,7 +330,7 @@ footer {
   }
 }
 
-/* Responsive Design */
+/* Responsive Design
 @media (max-width: 768px) {
   #hero {
     flex-direction: column;
@@ -356,7 +356,7 @@ footer {
     flex-direction: column;
     align-items: center;
 }
-}
+} */
 /* Contact Section (ID Selector #contact) */
 #contact {
   display: flex;
@@ -398,16 +398,3 @@ footer {
   transform: scale(1.05);
 }
 
-.contact-image {
-  flex: 1;
-  min-width: 300px;
-  text-align: center;
-}
-
-.contact-image img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 10px;
-  object-fit: cover;
-}
