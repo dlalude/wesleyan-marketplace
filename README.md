@@ -49,3 +49,6 @@ This project is licensed under the [MIT License](LICENSE).
 
 📢 Disclaimer
 This site was designed and published as part of the COMP 333 Software Engineering class at Wesleyan University. This is an exercise.
+
+<img width="633" alt="Screenshot 2025-02-26 at 9 46 35 PM" src="https://github.com/user-attachments/assets/ebcc6823-43a4-4574-afc3-59f470597df5" />
+
