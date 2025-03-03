@@ -1,6 +1,9 @@
 <?php
 session_start();
 include 'db.php';
+
+// Check if user is logged in
+$loggedInUser = $_SESSION["username"] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -28,20 +31,35 @@ include 'db.php';
     <section class="listings">
         <h2>Recent Listings</h2>
         <?php
-        $result = $conn->query("SELECT * FROM listings ORDER BY id DESC");
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='listing'>";
-                echo "<h3>{$row['item_name']}</h3>";
-                echo "<p>{$row['description']}</p>";
-                echo "<p class='price'>$ {$row['price']}</p>";
-                echo "<p class='seller'>Posted by: {$row['username']}</p>";
-                echo "</div>";
-            }
-        } else {
+        // Fetch all listings ordered by most recent
+        $stmt = $conn->prepare("SELECT * FROM listings ORDER BY id DESC");
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        if ($result->num_rows > 0):
+            while ($row = $result->fetch_assoc()):
+                $isOwner = ($loggedInUser === $row["username"]); // Check if logged-in user owns the listing
+        ?>
+                <div class='listing'>
+                    <h3><?php echo htmlspecialchars($row['item_name']); ?></h3>
+                    <p><?php echo htmlspecialchars($row['description']); ?></p>
+                    <p class='price'>$ <?php echo number_format($row['price'], 2); ?></p>
+                    <p class='seller'>Posted by: <?php echo htmlspecialchars($row['username']); ?></p>
+
+                    <?php if ($isOwner): ?>
+                        <div class="actions">
+                            <a href="edit.php?id=<?php echo $row['id']; ?>" class="edit-btn">Edit</a>
+                            <a href="delete.php?id=<?php echo $row['id']; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this listing?');">Delete</a>
+                        </div>
+                    <?php endif; ?>
+                </div>
+        <?php
+            endwhile;
+        else:
             echo "<p>No listings available.</p>";
-        }
+        endif;
         ?>
     </section>
 </body>
 </html>
+
