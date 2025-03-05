@@ -3,8 +3,12 @@ session_start();
 include 'db.php';
 
 if (isset($_SESSION["username"])) {
-    echo "<div class='user-info'>Logged in as: <strong>" . htmlspecialchars($_SESSION["username"]) . "</strong></div>";
+    echo "<div class ='user-info'>Logged in as: <strong>" . htmlspecialchars($_SESSION["username"]) . "</strong></div>";
 }
+// Fetch all listings from the database
+$stmt = $conn->prepare("SELECT * FROM listings ORDER BY id DESC");
+$stmt->execute();
+$result = $stmt->get_result();
 ?>
 
 <!DOCTYPE html>
