@@ -2,6 +2,10 @@
 session_start();
 include 'db.php';
 
+if (isset($_SESSION["username"])) {
+    echo "<div class='user-info'>Logged in as: <strong>" . htmlspecialchars($_SESSION["username"]) . "</strong></div>";
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];

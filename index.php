@@ -1,6 +1,10 @@
 <?php
 session_start();
 include 'db.php';
+
+if (isset($_SESSION["username"])) {
+    echo "<div class='user-info'>Logged in as: <strong>" . htmlspecialchars($_SESSION["username"]) . "</strong></div>";
+}
 ?>
 
 <!DOCTYPE html>
