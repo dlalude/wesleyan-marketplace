@@ -1,9 +1,6 @@
 <?php
 session_start();
 include 'db.php';
-
-// Check if user is logged in
-$loggedInUser = $_SESSION["username"] ?? null;
 ?>
 
 <!DOCTYPE html>
@@ -29,28 +26,25 @@ $loggedInUser = $_SESSION["username"] ?? null;
     </header>
 
     <section class="listings">
-        <h2>Recent Listings</h2>
+        <h2>All Listings</h2>
+
         <?php
-        // Fetch all listings ordered by most recent
         $stmt = $conn->prepare("SELECT * FROM listings ORDER BY id DESC");
         $stmt->execute();
         $result = $stmt->get_result();
 
         if ($result->num_rows > 0):
             while ($row = $result->fetch_assoc()):
-                $isOwner = ($loggedInUser === $row["username"]); // Check if logged-in user owns the listing
         ?>
-                <div class='listing'>
-                    <h3><?php echo htmlspecialchars($row['item_name']); ?></h3>
-                    <p><?php echo htmlspecialchars($row['description']); ?></p>
-                    <p class='price'>$ <?php echo number_format($row['price'], 2); ?></p>
-                    <p class='seller'>Posted by: <?php echo htmlspecialchars($row['username']); ?></p>
+                <div class="listing">
+                    <h3><?= htmlspecialchars($row['item_name']) ?></h3>
+                    <p><?= htmlspecialchars($row['description']) ?></p>
+                    <p class="price">$ <?= htmlspecialchars($row['price']) ?></p>
+                    <p class="seller">Listed by: <?= htmlspecialchars($row['username']) ?></p>
 
-                    <?php if ($isOwner): ?>
-                        <div class="actions">
-                            <a href="edit.php?id=<?php echo $row['id']; ?>" class="edit-btn">Edit</a>
-                            <a href="delete.php?id=<?php echo $row['id']; ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this listing?');">Delete</a>
-                        </div>
+                    <?php if (isset($_SESSION["username"]) && $_SESSION["username"] === $row["username"]): ?>
+                        <a href="update.php?id=<?= $row['id'] ?>">Edit</a>
+                        <a href="delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this listing?');">Delete</a>
                     <?php endif; ?>
                 </div>
         <?php
@@ -62,4 +56,3 @@ $loggedInUser = $_SESSION["username"] ?? null;
     </section>
 </body>
 </html>
-
