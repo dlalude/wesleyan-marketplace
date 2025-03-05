@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-        <h1>Wesleyan Marketplace</h1>
+        <h1>College Marketplace</h1>
         <nav>
             <a href="index.php">Home</a>
             <a href="register.php">Register</a>

@@ -390,4 +390,228 @@ footer {
 }
 
 
+/* General Styles */
+/* Listings Section */
+.listings {
+  width: 100%;
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 25px;
+  background: linear-gradient(135deg, #ffd3a5, #fd6585);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Georgia", serif;
+  color: white;
+}
 
+/* Section Title */
+.listings h2 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: white;
+}
+
+/* Individual Listing */
+.listing {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease-in-out;
+}
+
+.listing:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Item Title */
+.listing h3 {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #e94e77;
+  margin-bottom: 5px;
+  font-family: "Georgia", serif;
+}
+
+/* Description */
+.listing p {
+  font-size: 1.1em;
+  color: #333;
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+/* Price */
+.price {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+/* Seller Info */
+.seller {
+  font-size: 1em;
+  font-style: italic;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Actions (Edit/Delete) */
+.listing-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.listing-actions a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Edit & Delete Buttons */
+.edit-btn {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+}
+
+.delete-btn {
+  background-color: #e94e77;
+  color: white;
+  border: none;
+}
+
+/* Hover Effects */
+.edit-btn:hover {
+  background-color: #357ABD;
+  transform: scale(1.05);
+}
+
+.delete-btn:hover {
+  background-color: #d13b62;
+  transform: scale(1.05);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .listing {
+    padding: 15px;
+  }
+
+  .listing h3 {
+    font-size: 1.5em;
+  }
+
+  .price {
+    font-size: 1.3em;
+  }
+
+  .listing-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+/* Header styling */
+/* Header Styling */
+header {
+  background: white;
+  padding: 15px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Main Title (Logo or Name) */
+header h1 {
+  font-size: 2.2em;
+  font-weight: bold;
+  color: #333;
+  font-family: "Georgia", serif;
+  margin: 0;
+}
+/* Ensure Navigation Bar is properly spaced */
+nav {
+  display: flex;
+  justify-content: space-between; /* Pushes items to edges */
+  align-items: center;
+  padding: 15px 30px; /* Adds spacing */
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid #e0e0e0;
+}
+
+/* Nav container should be full-width */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Restrict max width */
+  margin: 0 auto;
+}
+
+/* Logo Spacing */
+.logo a {
+  font-size: 1.8em;
+  font-weight: 700;
+  text-decoration: none;
+  color: #4a90e2;
+}
+
+/* Different color for "Market" */
+.logo span {
+  color: #e94e77;
+}
+
+/* Navigation List */
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 20px; /* Space between items */
+}
+
+.nav-item a {
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 600;
+  color: #333;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-item a:hover {
+  color: #e94e77;
+}
+
+nav a {
+  margin-right: 15px; /* Adds space between links */
+}
+
+nav a:last-child {
+  margin-right: 0; /* Ensures no extra space on the last link */
+}
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

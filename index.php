@@ -13,7 +13,7 @@ include 'db.php';
 </head>
 <body>
     <header>
-        <h1>Wesleyan Marketplace</h1>
+        <h1>College Marketplace</h1>
         <nav>
             <?php if (isset($_SESSION["username"])): ?>
                 <a href="create.php">Create Listing</a>
@@ -37,14 +37,26 @@ include 'db.php';
             while ($row = $result->fetch_assoc()):
         ?>
                 <div class="listing">
-                    <h3><?= htmlspecialchars($row['item_name']) ?></h3>
-                    <p><?= htmlspecialchars($row['description']) ?></p>
-                    <p class="price">$ <?= htmlspecialchars($row['price']) ?></p>
+                    <!-- Item Title -->
+                    <a href="#" class="listing-title">
+                        <h3><?= htmlspecialchars($row['item_name']) ?></h3>
+                    </a>
+
+                    <!-- Description -->
+                    <div class="listing-description">
+                        <p><?= htmlspecialchars($row['description']) ?></p>
+                        <p class="price"><strong>$<?= number_format($row['price'], 2) ?></strong></p>
+                    </div>
+
+                    <!-- Seller -->
                     <p class="seller">Listed by: <?= htmlspecialchars($row['username']) ?></p>
 
+                    <!-- Actions (Only for Owner) -->
                     <?php if (isset($_SESSION["username"]) && $_SESSION["username"] === $row["username"]): ?>
-                        <a href="update.php?id=<?= $row['id'] ?>">Edit</a>
-                        <a href="delete.php?id=<?= $row['id'] ?>" onclick="return confirm('Are you sure you want to delete this listing?');">Delete</a>
+                        <div class="listing-actions">
+                            <a href="edit.php?id=<?= $row['id'] ?>" class="edit-btn">Edit</a>
+                            <a href="delete.php?id=<?= $row['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure you want to delete this listing?');">Delete</a>
+                        </div>
                     <?php endif; ?>
                 </div>
         <?php
