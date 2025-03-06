@@ -17,7 +17,7 @@ if (isset($_SESSION["username"])) {
 </head>
 <body>
     <header>
-        <h1>College Marketplace</h1>
+        <h1><a href="index.html">College Marketplace</a></h1>
         <nav>
             <?php if (isset($_SESSION["username"])): ?>
                 <a href="create.php">Create Listing</a>
