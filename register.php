@@ -3,33 +3,41 @@ session_start();
 include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
-    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $username = trim($_POST["username"]);
+    $password = $_POST["password"];
+    $confirm_password = $_POST["confirm_password"];
 
-    // 🔍 Check if the username already exists
-    $check_stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
-    $check_stmt->bind_param("s", $username);
-    $check_stmt->execute();
-    $check_result = $check_stmt->get_result();
-
-    if ($check_result->num_rows > 0) {
-        // Username already exists, show an alert
-        echo "<script>alert('Username already taken. Please choose another one.'); window.location.href='register.php';</script>";
-        exit();
+    if (empty($username) || empty($password) || empty($confirm_password)) {
+        $error_message = "All fields are required.";
+    } elseif (strlen($password) < 10) {  // ✅ Enforce minimum password length
+        $error_message = "Password must be at least 10 characters long.";
+    } elseif ($password !== $confirm_password) {
+        $error_message = "Passwords do not match.";
     } else {
-        // Username is available, insert the new user
-        $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-        $stmt->bind_param("ss", $username, $password);
-
-        if ($stmt->execute()) {
-            $_SESSION['username'] = $username;
-            header("Location: index.php");
-            exit();
+        // Check if username already exists
+        $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $stmt->store_result();
+        
+        if ($stmt->num_rows > 0) {
+            $error_message = "Username already exists.";
         } else {
-            echo "<script>alert('Registration failed. Please try again.'); window.location.href='register.php';</script>";
+            // Insert new user into database
+            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+            $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+            $stmt->bind_param("ss", $username, $hashed_password);
+
+            if ($stmt->execute()) {
+                header("Location: login.php");
+                exit();
+            } else {
+                $error_message = "Registration failed. Please try again.";
+            }
         }
     }
 }
+
 ?>
 
 
