@@ -37,9 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <header>
-        <h1>College Marketplace</h1>
+        <h1><a href="index.html">College Marketplace</a></h1>
         <nav>
-            <a href="index.php">Home</a>
+            <a href="index.html">Home</a>
             <a href="register.php">Register</a>
         </nav>
     </header>
