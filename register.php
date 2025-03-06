@@ -2,47 +2,36 @@
 session_start();
 include 'db.php';
 
-// Show logged-in user info if they are already logged in
-if (isset($_SESSION["username"])) {
-    echo "<div class='user-info'>Logged in as: <strong>" . htmlspecialchars($_SESSION["username"]) . "</strong></div>";
-}
-
-$error_message = ""; // Initialize error message variable
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST["username"]);
-    $password = $_POST["password"];
-    $confirm_password = $_POST["confirm_password"];
+    $username = trim($_POST['username']);
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    if (empty($username) || empty($password) || empty($confirm_password)) {
-        $error_message = "All fields are required.";
-    } elseif ($password !== $confirm_password) {
-        $error_message = "Passwords do not match.";
+    // 🔍 Check if the username already exists
+    $check_stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+    $check_stmt->bind_param("s", $username);
+    $check_stmt->execute();
+    $check_result = $check_stmt->get_result();
+
+    if ($check_result->num_rows > 0) {
+        // Username already exists, show an alert
+        echo "<script>alert('Username already taken. Please choose another one.'); window.location.href='register.php';</script>";
+        exit();
     } else {
-        // Check if username already exists
-        $stmt = $conn->prepare("SELECT id FROM users WHERE username = ?");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->store_result();
-        
-        if ($stmt->num_rows > 0) {
-            $error_message = "Username already exists.";
-        } else {
-            // Insert new user into database
-            $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-            $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
-            $stmt->bind_param("ss", $username, $hashed_password);
+        // Username is available, insert the new user
+        $stmt = $conn->prepare("INSERT INTO users (username, password) VALUES (?, ?)");
+        $stmt->bind_param("ss", $username, $password);
 
-            if ($stmt->execute()) {
-                header("Location: login.php");
-                exit();
-            } else {
-                $error_message = "Registration failed. Please try again.";
-            }
+        if ($stmt->execute()) {
+            $_SESSION['username'] = $username;
+            header("Location: index.php");
+            exit();
+        } else {
+            echo "<script>alert('Registration failed. Please try again.'); window.location.href='register.php';</script>";
         }
     }
 }
 ?>
+
 
 
 <!DOCTYPE html>
