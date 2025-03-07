@@ -89,7 +89,9 @@ SHOW TABLES;
 SELECT * FROM users;
 SELECT * FROM listings;
 
-ensure dp.php matches
+> **Note:** Ensure `db.php` matches the following configuration for local hosting:
+
+```php
 <?php
 $servername = "localhost";
 $username = "root"; // Default for XAMPP
@@ -102,4 +104,5 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
+
 
