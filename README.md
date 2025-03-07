@@ -80,3 +80,9 @@ CREATE TABLE listings (
     price DECIMAL(10,2) NOT NULL,
     FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
 );
+
+-- Verify Setup
+SHOW TABLES;
+SELECT * FROM users;
+SELECT * FROM listings;
+
