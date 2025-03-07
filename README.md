@@ -62,10 +62,6 @@ Link to deployed site -- https://wesleyanmarketplace.wuaze.com
 
 📝 Local Database Setup Instructions
 
-Start Apache & MySQL
-Open XAMPP and start Apache and MySQL.
-Open phpMyAdmin at http://localhost/phpmyadmin.
-
 Note: We must create the following database and tables in phpMyAdmin locally.
 
 Database Name: app-db
