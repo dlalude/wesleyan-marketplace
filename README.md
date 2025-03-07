@@ -61,6 +61,11 @@ Link to deployed site -- https://wesleyanmarketplace.wuaze.com
 
 
 📝 Local Database Setup Instructions
+
+Start Apache & MySQL
+Open XAMPP and start Apache and MySQL.
+Open phpMyAdmin at http://localhost/phpmyadmin.
+
 Note: We must create the following database and tables in phpMyAdmin locally.
 
 Database Name: app-db
@@ -87,4 +92,18 @@ CREATE TABLE listings (
 SHOW TABLES;
 SELECT * FROM users;
 SELECT * FROM listings;
+
+ensure dp.php matches
+<?php
+$servername = "localhost";
+$username = "root"; // Default for XAMPP
+$password = ""; // No password by default
+$dbname = "app_db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
 
