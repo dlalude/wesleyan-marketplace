@@ -52,6 +52,7 @@ This site was designed and published as part of the COMP 333 Software Engineerin
 
 
 Homework #2 Notes...
+
 📌 Release v1.0.0
 Initial deployment completed and hosted successfully.
 
