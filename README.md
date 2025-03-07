@@ -96,7 +96,7 @@ SELECT * FROM listings;
 $servername = "localhost";
 $username = "root"; // Default for XAMPP
 $password = ""; // No password by default
-$dbname = "app_db";
+$dbname = "app-db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
