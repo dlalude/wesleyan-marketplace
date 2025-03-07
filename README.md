@@ -49,3 +49,60 @@ This project is licensed under the [MIT License](LICENSE).
 
 📢 Disclaimer
 This site was designed and published as part of the COMP 333 Software Engineering class at Wesleyan University. This is an exercise.
+
+
+Homework #2 Notes...
+
+Link to deployed site -- https://wesleyanmarketplace.wuaze.com
+
+<img width="633" alt="Screenshot 2025-02-26 at 9 46 35 PM" src="https://github.com/user-attachments/assets/ebcc6823-43a4-4574-afc3-59f470597df5" />
+<br> </br>
+<img src="webImages/phpboard.png" alt="PHP Board Preview" width="500">
+
+
+📝 Local Database Setup Instructions
+
+Note: We must create the following database and tables in phpMyAdmin locally.
+
+Database Name: app-db
+
+SQL Queries to Create Tables:
+
+-- Create Users Table
+CREATE TABLE users (
+    username VARCHAR(255) PRIMARY KEY,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Create Listings Table
+CREATE TABLE listings (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255),
+    item_name VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (username) REFERENCES users(username) ON DELETE CASCADE
+);
+
+-- Verify Setup
+SHOW TABLES;
+SELECT * FROM users;
+SELECT * FROM listings;
+
+> **Note:** Ensure `db.php` matches the following configuration for local hosting:
+
+```php
+<?php
+$servername = "localhost";
+$username = "root"; // Default for XAMPP
+$password = ""; // No password by default
+$dbname = "app-db";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
+
+
