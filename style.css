@@ -75,7 +75,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: linear-gradient(135deg, #ffd3a5, #fd6585);
+  background: linear-gradient( #ffd3a5, #fd6585);
   border-radius: 10px;
   overflow: hidden;
   flex-wrap: wrap;
