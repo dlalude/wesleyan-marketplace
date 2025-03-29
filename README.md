@@ -92,6 +92,7 @@ SHOW TABLES;
 SELECT * FROM users;
 SELECT * FROM listings;
 
+<img width="1440" alt="Screenshot 2025-03-29 at 12 32 01" src="https://github.com/user-attachments/assets/dec26eb6-3e81-4caa-953f-961350190f31" />
 > **Note:** Ensure `db.php` matches the following configuration for local hosting:
 
 ```php
@@ -107,5 +108,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 ?>
+
+
+
 
 
